@@ -1,0 +1,8 @@
+image,object_id,error_type,reviewer,note
+img_003.jpg,21,thua,Lê Trần Phi Hùng,"Box bao riêng thùng hàng và bánh trước của cùng chiếc xe ba bánh đã được bao toàn bộ bởi #17."
+img_006.jpg,103,sai_vi_tri_kich_thuoc,Lê Trần Phi Hùng,"Box người mặc áo cam ngồi trên ghế xanh bên phải dừng ngang cẳng chân. Phần chân và bàn chân nhìn thấy bên dưới cạnh đáy."
+img_013.jpg,161,sai_vi_tri_kich_thuoc,Lê Trần Phi Hùng,"Cạnh trên của box tuk-tuk ở ngang khoang khách và bỏ toàn bộ phần mui bạc nhìn thấy phía trên."
+img_014.jpg,167,sai_vi_tri_kich_thuoc,Lê Trần Phi Hùng,"Box xe máy đen ở góc phải dưới bắt đầu cao hơn yên xe rất nhiều và bao cả mặt đường cùng một phần xe đỏ phía sau."
+img_022.jpg,312,thua,Lê Trần Phi Hùng,"Hai box person #312 và #322 cùng bao người đứng sau thân cây cạnh quầy rau. Box #312 rộng hơn và bao thêm thân cây."
+img_024.jpg,342,thua,Lê Trần Phi Hùng,"Box car #342 ở góc dưới bên phải bao các vệt sáng kéo dài trên mặt đường. Trong vùng này không phân biệt được thân của một ô tô riêng để gán box."
+img_034.jpg,648,thua,Lê Trần Phi Hùng,"Box người #648 cao 15,6 px, dưới ngưỡng 20 px để gán từng vật theo mục 4.1.6. Phiếu ghi một lỗi đại diện cho ảnh này."

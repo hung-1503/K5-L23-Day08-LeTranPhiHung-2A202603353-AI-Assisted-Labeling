@@ -53,10 +53,26 @@ def main() -> None:
             continue
         checked.add(img)
         if et != "khong":
-            err_rows.append((img, (row.get("object_id") or "").strip() or f"(dòng {i})", et))
+            # Các vật cùng ảnh và cùng loại lỗi có thể dùng chung dòng, ngăn ID bằng dấu chấm phẩy.
+            object_ids = [oid.strip() for oid in (row.get("object_id") or "").split(";") if oid.strip()]
+            for oid in object_ids or [f"(dòng {i})"]:
+                err_rows.append((img, oid, et))
     unchecked = [i for i in imgs if i not in checked]
     if unchecked:
         warns.append(f"{len(unchecked)} ảnh trong mẫu CHƯA kiểm: {', '.join(unchecked[:8])}")
+        draft = [
+            "# Báo cáo QC tự động (đang kiểm)",
+            "",
+            f"Mẫu gồm {n_img} ảnh và {n_obj} đối tượng. Phiếu đã ghi kết quả cho {len(checked)}/{n_img} ảnh.",
+            "",
+            *[f"- {message}" for message in warns],
+            "",
+            "Tỷ lệ lỗi, khoảng tin cậy và gợi ý quyết định sẽ được tính khi mọi ảnh trong mẫu có kết quả.",
+        ]
+        text = "\n".join(draft) + "\n"
+        (qc / "qc_report_auto.md").write_text(text, encoding="utf8")
+        print(text)
+        return
     err_objs, err_imgs = {(i, o) for i, o, _ in err_rows}, {i for i, _, _ in err_rows}
     types = Counter(t for _, _, t in err_rows)
     ex = defaultdict(list)
@@ -84,8 +100,6 @@ def main() -> None:
         decision = "REWORK" if rw else "RELEASE"
         reasons = rw or [f"ảnh lỗi {0 if rate_img is None else rate_img * 100:.1f}% <= {r['error_rate_img_max'] * 100:.0f}%, "
                          "không lỗi hệ thống, bắt bẫy / nhất quán đạt (nếu đã đo)"]
-    if unchecked:
-        reasons.append("LƯU Ý: còn ảnh mẫu chưa kiểm -> kết luận chưa đáng tin")
     if n_img:
         k_, n_ = len(err_imgs), n_img
         z = 1.96

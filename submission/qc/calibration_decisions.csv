@@ -1,1 +1,4 @@
 case_id,image,nguon,van_de,quyet_dinh,quy_tac_ghi_vao_guideline,phien_ban_guideline
+CAL-01,img_011,cau_hoi_mo,Điểm tin cậy có đủ để giữ box không?,Đối chiếu vật thật và lớp rồi kiểm tra bốn cạnh trước khi giữ box.,Mục 6 câu 7 không dùng ngưỡng điểm để tự động chấp nhận.,v1.1
+CAL-02,img_013,loi_may,SAM tô lẫn áo và chân người lái vào tuk-tuk dù đã bấm lên áo.,Tách phần người nhìn thấy khỏi mask xe ở vùng tiếp xúc.,Áp dụng mục 4.2.4 hiện có.,v1.1
+CAL-03,img_013,bay_lot,Bẫy box lỏng còn lọt sau duyệt.,Đối chiếu lần lượt cạnh trên dưới trái phải với phần vật nhìn thấy.,Áp dụng quy tắc box ở mục 4.1.,v1.1

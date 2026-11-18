@@ -1,23 +1,18 @@
-# Label contract — Phố châu Á — BỔ SUNG v1.1 — <<MSHV - Họ tên>>
+# Phụ lục hướng dẫn gán nhãn v1.1 — Lê Trần Phi Hùng
 
-> **Chỉ viết phần thay đổi so với v1.0** (không copy cả file). Chốt các câu hỏi mở ở mục 6 của v1.0 (hoặc nói rõ câu nào chưa chốt, vì sao)
-> và thêm quy tắc mới rút ra từ lỗi của máy / lỗi của bạn. Mỗi ca khó **có ảnh ví dụ** (`img_0xx`) và khớp một dòng trong `qc/calibration_decisions.csv`.
+## 1. Khi nào giữ box máy?
 
-## 1. Câu hỏi mở đã chốt (từ mục 6 của v1.0)
+**CAL-01 · Câu hỏi 7.** Trước khi giữ một box, hãy tìm vật trong ảnh, xác nhận lớp rồi kiểm tra cả bốn cạnh. Áp dụng cùng cách duyệt cho mọi mức confidence. Trong lần chạy r03, YOLOE đề xuất một `three_wheeler` ở mép trái ảnh với điểm 0,28 dù tại đó không có xe ba bánh tương ứng. [Ảnh img_011](../../data/images/img_011.jpg)
 
-| # | Câu hỏi | Quyết định | Ảnh ví dụ | `case_id` |
-|---|---|---|---|---|
-| <<1>> | <<xe đạp điện: bicycle hay motorbike?>> | <<>> | <<img_0xx>> | <<CAL-01>> |
+Câu 1–6 còn mở. Ba ca trong vòng này chưa đủ để chốt cách phân loại xe điện, tách xe đỗ dày, xử lý hàng nhô ra, ước lượng phần người bị che, vẽ kính xe hoặc xử lý box chồng trong ảnh đêm.
 
-## 2. Ca khó mới (từ lỗi của máy, bẫy lọt, box `can_review`)
+## 2. Hai ca áp dụng quy tắc hiện có
 
-| Ảnh | Tình huống | Máy làm gì (model nào) | Quyết định của bạn | Quy tắc mới (vào mục nào của v1.0) |
-|---|---|---|---|---|
-| <<img_0xx>> | <<>> | <<>> | <<>> | <<>> |
+| Ca | Dấu hiệu quan sát | Cách xử lý |
+|---|---|---|
+| CAL-02 | SAM tô cả áo và chân người lái vào thân tuk-tuk. | Theo mục 4.2.4, lần theo đường tiếp xúc giữa người và xe. Loại phần người ở phía trước khỏi mask xe. [Mask img_013](../masks/tuktuk_img013.jpg) |
+| CAL-03 | Phép chấm bẫy ghi nhận box lỏng ở góc trên bên phải của [ảnh img_013](../../data/images/img_013.jpg). | Theo mục 4.1, so từng cạnh box với biên phần vật nhìn thấy. Thu cạnh còn ôm nền thừa. [Kết quả chấm bẫy](../qc/review_stats.md) |
 
 ## 3. Lịch sử thay đổi
 
-| Phiên bản | Thay đổi | Lý do (ca nào, `case_id`) |
-|---|---|---|
-| v1.0 | Bản giảng viên | — |
-| v1.1 | <<tóm tắt các thay đổi ở mục 1–2>> | <<>> |
+v1.1 bổ sung cách quyết định giữ box theo CAL-01 và ghi hai ví dụ áp dụng quy tắc biên ở CAL-02 và CAL-03.

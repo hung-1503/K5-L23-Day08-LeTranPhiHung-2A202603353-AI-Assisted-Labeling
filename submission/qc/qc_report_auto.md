@@ -3,14 +3,14 @@
 > **Gợi ý** do script tính; bạn xác nhận. Script chỉ đếm theo phiếu kiểm bằng mắt người.
 
 ## Mẫu
-- 7 ảnh (2 ca khó + 5 ngẫu nhiên), 230 đối tượng.
+- 7 ảnh (2 ca khó + 5 ngẫu nhiên), 226 đối tượng.
 - taxonomy v1.0
 
 ## Số đo
 | Chỉ số | Giá trị | Mẫu số |
 |---|---|---|
-| Lỗi **theo đối tượng** | 4/230 = 1.7% | 230 đối tượng trong mẫu |
-| **Ảnh có lỗi** (dùng cho ngưỡng) | 3/7 = 42.9% | 7 ảnh trong mẫu |
+| Lỗi **theo đối tượng** | 1/226 = 0.4% | 226 đối tượng trong mẫu |
+| **Ảnh có lỗi** (dùng cho ngưỡng) | 1/7 = 14.3% | 7 ảnh trong mẫu |
 | Máy: accepted / edited / deleted | 621/727 = 85.4% / 22/727 = 3.0% / 78/727 = 10.7% | 727 box máy |
 | Máy: added | 40/683 = 5.9% | 683 đối tượng sau duyệt |
 | Bắt lỗi bẫy | 10/12 = 83.3% | 12 bẫy |
@@ -18,17 +18,14 @@
 ## Top 3 loại lỗi
 | Loại lỗi | Số lỗi | Ảnh ví dụ |
 |---|---|---|
-| thua | 4 | img_003.jpg, img_024.jpg, img_034.jpg |
-
-**Lỗi hệ thống**: 'thua' lặp lại -> sửa quy tắc / recipe, không chỉ sửa từng ảnh.
+| thua | 1 | img_024.jpg |
 
 ## Giới hạn thống kê
-- 3 ảnh lỗi trong 7 ảnh mẫu: cận trên 95% (Wilson) của tỉ lệ ảnh lỗi thật là **75%**. Ngưỡng 2% không thể được **chứng minh** bằng mẫu nhỏ như vậy: hãy nói rõ giới hạn này trong báo cáo.
+- 1 ảnh lỗi trong 7 ảnh mẫu: cận trên 95% (Wilson) của tỉ lệ ảnh lỗi thật là **51%**. Ngưỡng 2% không thể được **chứng minh** bằng mẫu nhỏ như vậy: hãy nói rõ giới hạn này trong báo cáo.
 
 ## Gợi ý quyết định
 **REWORK**
 
-- ảnh có lỗi 42.9% > 2%
-- lỗi hệ thống: 'thua' chiếm 4/4 lỗi
+- ảnh có lỗi 14.3% > 2%
 
 Cây quyết định: Hold (guideline chưa rõ / dữ liệu hỏng) -> Rework (> ngưỡng, lỗi lặp, bắt bẫy / nhất quán thấp) -> Release.

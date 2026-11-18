@@ -1,9 +1,8 @@
 image,object_id,error_type,reviewer,note
-img_003.jpg,2,thua,Codex,"Box three_wheeler ở mép phải chỉ phủ một dải cạnh xe máy và nền. Không phân biệt được một xe ba bánh riêng. Box trùng #21 của vòng đầu đã bị xóa."
-img_006.jpg,,khong,Codex,"Đối chiếu ảnh chụp với tọa độ mới: cạnh đáy box người áo cam đã hạ từ y=605,73 xuống 633,90. Chưa xác định thêm lỗi rõ trong ảnh chụp."
-img_013.jpg,,khong,Codex,"Cạnh trên box tuk-tuk đã kéo lên y=24,7 để lấy phần mui. Chưa xác định thêm lỗi rõ từ ảnh chụp; các nhãn nhỏ ở góc phải bị chữ che."
-img_014.jpg,,khong,Codex,"Xe máy đen ở góc dưới phải đã có lại box từ (706,600) đến (1023,768). Cạnh trên nằm sát yên xe. Chưa xác định thêm lỗi rõ trong ảnh chụp."
-img_022.jpg,,khong,Codex,"Đã bỏ box rộng trùng người đứng sau thân cây. Chưa xác định thêm lỗi rõ trong ảnh chụp; các vật ở xa khó phân biệt."
-img_024.jpg,404,thua,Codex,"Đã xóa box vệt sáng của vòng đầu. Sát bên trái vị trí đó còn box car trên một vệt sáng cong ở đáy ảnh, không thấy rõ thân ô tô riêng."
-img_034.jpg,637,thua,Codex,"Box xe máy cao 17,4 px dưới ngưỡng 20 px theo mục 4.1.6."
-img_034.jpg,645,thua,Codex,"Box xe máy cao 18,3 px dưới ngưỡng 20 px theo mục 4.1.6."
+img_003.jpg,,khong,Codex,Đã xác nhận box three_wheeler thừa ở mép phải đã được xóa. Các nhãn khác khớp vòng hai.
+img_006.jpg,,khong,Codex,Nhãn khớp vòng hai. Vòng hai chưa ghi nhận lỗi trên ảnh chụp đã kiểm.
+img_013.jpg,,khong,Codex,Nhãn khớp vòng hai. Vòng hai chưa ghi nhận lỗi trên ảnh chụp đã kiểm.
+img_014.jpg,,khong,Codex,Nhãn khớp vòng hai. Vòng hai chưa ghi nhận lỗi trên ảnh chụp đã kiểm.
+img_022.jpg,,khong,Codex,Nhãn khớp vòng hai. Vòng hai chưa ghi nhận lỗi trên ảnh chụp đã kiểm.
+img_024.jpg,402,thua,Codex,"Box car trên vệt sáng cong vẫn ở (694.83, 561.75), rộng 99.37 px và cao 86.48 px. Bản export xóa một box khác tại (496.48, 510.33)."
+img_034.jpg,,khong,Codex,Đã xác nhận hai box xe máy dưới 20 px của vòng hai đã được xóa. Các nhãn khác khớp vòng hai.

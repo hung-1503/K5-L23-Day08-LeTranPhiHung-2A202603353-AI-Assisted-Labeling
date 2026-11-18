@@ -1,0 +1,9 @@
+image,object_id,error_type,reviewer,note
+img_003.jpg,2,thua,Lê Trần Phi Hùng,"Box three_wheeler ở mép phải chỉ phủ một dải cạnh xe máy và nền. Không phân biệt được một xe ba bánh riêng. Box trùng #21 của vòng đầu đã bị xóa."
+img_006.jpg,,khong,Lê Trần Phi Hùng,"Đối chiếu ảnh chụp với tọa độ mới: cạnh đáy box người áo cam đã hạ từ y=605,73 xuống 633,90. Chưa xác định thêm lỗi rõ trong ảnh chụp."
+img_013.jpg,,khong,Lê Trần Phi Hùng,"Cạnh trên box tuk-tuk đã kéo lên y=24,7 để lấy phần mui. Chưa xác định thêm lỗi rõ từ ảnh chụp; các nhãn nhỏ ở góc phải bị chữ che."
+img_014.jpg,,khong,Lê Trần Phi Hùng,"Xe máy đen ở góc dưới phải đã có lại box từ (706,600) đến (1023,768). Cạnh trên nằm sát yên xe. Chưa xác định thêm lỗi rõ trong ảnh chụp."
+img_022.jpg,,khong,Lê Trần Phi Hùng,"Đã bỏ box rộng trùng người đứng sau thân cây. Chưa xác định thêm lỗi rõ trong ảnh chụp; các vật ở xa khó phân biệt."
+img_024.jpg,404,thua,Lê Trần Phi Hùng,"Đã xóa box vệt sáng của vòng đầu. Sát bên trái vị trí đó còn box car trên một vệt sáng cong ở đáy ảnh, không thấy rõ thân ô tô riêng."
+img_034.jpg,637,thua,Lê Trần Phi Hùng,"Box xe máy cao 17,4 px dưới ngưỡng 20 px theo mục 4.1.6."
+img_034.jpg,645,thua,Lê Trần Phi Hùng,"Box xe máy cao 18,3 px dưới ngưỡng 20 px theo mục 4.1.6."

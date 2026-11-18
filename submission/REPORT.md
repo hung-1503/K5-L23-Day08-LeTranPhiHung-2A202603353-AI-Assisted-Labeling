@@ -79,20 +79,21 @@ SAM dùng hai loại điểm gợi ý. Bấm vào phần xe muốn tô gọi là
 
 ## 7. QC và quyết định (Part 6)
 
-- **Mẫu và cách kiểm.** Cả hai vòng dùng 2 ảnh có cờ `can_review` và 5 ảnh chọn ngẫu nhiên (seed 42). Vòng đầu, phiếu ghi Lê Trần Phi Hùng là người duyệt, có Codex hỗ trợ. Vòng hai, Codex đối chiếu tọa độ và lớp của nhãn đã sửa với 7 ảnh chụp CVAT đã cung cấp. Một số vật ở xa bị chữ nhãn che. [Mẫu vòng hai](qc/qc_sample.csv)
+- **Mẫu và cách kiểm.** Cả ba vòng dùng 2 ảnh có cờ `can_review` và 5 ảnh chọn ngẫu nhiên (seed 42). Vòng đầu, phiếu ghi Lê Trần Phi Hùng là người duyệt, có Codex hỗ trợ. Vòng hai, đối chiếu tọa độ và lớp của nhãn đã sửa với 7 ảnh chụp CVAT đã cung cấp. Một số vật ở xa bị chữ nhãn che. Vòng ba đối chiếu bản export mới với nhãn và phiếu vòng hai. [Mẫu vòng ba](qc/qc_sample.csv)
 
 | Vòng | Lỗi theo đối tượng | Ảnh có lỗi | Loại lỗi ghi nhận |
 |---|---|---|---|
 | 1, trước sửa | 7/233 (3,0%) | 7/7 (100%) | 4 nhãn thừa và 3 box sai kích thước. Phiếu chọn một lỗi đại diện ở img_034. |
 | 2, sau sửa | 4/230 (1,7%) | 3/7 (42,9%) | 4 nhãn thừa, gồm một box ở img_003, một box ở img_024 và hai box cao dưới 20 px ở img_034. |
+| 3, sau export mới | 1/226 (0,4%) | 1/7 (14,3%) | Còn box car trên vệt sáng ở img_024, ID #402 trong release vòng ba. |
 
-- **Sửa sau vòng đầu.** Đã xử lý 7 mục của phiếu. Riêng ở img_014, box xe máy đen được khôi phục và thu sát yên xe; ở img_024, box xe trên vệt sáng được xóa. Bản sửa giữ cả box xe trắng mà học viên đã thêm ở ảnh này. Bản release dùng nhãn sửa cho 7/24 ảnh, tổng cộng 697 nhãn gồm 6 vùng ignore. [QC vòng đầu](qc/round1/qc_report_auto.md) · [Manifest](release/release_manifest.json)
-- **Giới hạn.** Cận trên Wilson 95% theo script ở vòng hai là 75%. Mẫu chỉ có 7 ảnh, gồm 2 ca khó chọn chủ đích và được dùng lại sau sửa. Script đếm lỗi từ phiếu; độ sát biên, lớp thực tế và vật bỏ sót cần đối chiếu ảnh. [QC vòng hai](qc/qc_report_auto.md)
-- **Kết quả theo tiêu chí ngày 2026-11-19.** Script gợi ý **Rework** ở cả hai vòng. Tỷ lệ ảnh có lỗi ở vòng hai là 3/7 (42,9%), vượt ngưỡng Release 2%. Các ID trong phiếu vòng hai là ID của bản release mới. Cần rà các nhãn thừa còn ghi trên phiếu trước khi xét Release. [Phiếu vòng hai](qc/qc_review.csv)
+- **Sửa sau vòng đầu.** Đã xử lý 7 mục của phiếu. Riêng ở img_014, box xe máy đen được khôi phục và thu sát yên xe; ở img_024, box xe trên vệt sáng được xóa. Bản sửa giữ cả box xe trắng mà học viên đã thêm ở ảnh này. Bản vòng hai dùng nhãn sửa cho 7/24 ảnh, tổng cộng 697 nhãn gồm 6 vùng ignore. [QC vòng đầu](qc/round1/qc_report_auto.md)
+- **Giới hạn.** Cận trên Wilson 95% theo script là 75% ở vòng hai và 51% ở vòng ba. Bảy ảnh gồm hai ca khó được chọn chủ đích và được dùng lại qua các vòng. [QC vòng hai](qc/round2/qc_report_auto.md) · [QC vòng ba](qc/qc_report_auto.md)
+- **Kết quả vòng ba.** Bản release có 693 nhãn trên 24 ảnh. Ba trong bốn box ghi lỗi ở vòng hai đã được xóa đúng. Ở img_024, box bị xóa nằm tại (496,48; 510,33), còn box cần kiểm nằm tại (694,83; 561,75). Cần kiểm lại cả hai vị trí trong CVAT. Script gợi ý **Rework** vì tỷ lệ 1/7 ảnh lỗi vượt ngưỡng Release 2%. [Phiếu vòng ba](qc/qc_review.csv) · [Manifest](release/release_manifest.json)
 
 ## 8. Ghi chú cá nhân
 
-- Công cụ hỗ trợ là Codex, dùng để chạy script, tạo ba mask SAM theo điểm bấm, đối chiếu số liệu và soạn bản nháp báo cáo cùng phụ lục calibration. Các số liệu được kiểm tra lại với log và tệp do script sinh. Phần phân tích và các quy tắc trong bản nháp cần học viên tự rà và chốt.
+- Công cụ hỗ trợ là Codex, dùng để đối chiếu số liệu và soạn bản nháp báo cáo cùng phụ lục calibration. Các số liệu được kiểm tra lại với log và tệp do script sinh. Phần phân tích và các quy tắc trong bản nháp cần học viên tự rà và chốt.
 - **Tính độc lập của gold.** Có 4 ảnh gán tay và đã ghi 30 phút cho bước này. Chưa có xác nhận về việc người gán đã xem pre-label hoặc hỏi AI trước khi hoàn tất gold hay chưa. Vì vậy, khi đọc precision và recall, cần tính đến khả năng nhãn gold chịu ảnh hưởng của máy.
 - Môi trường chạy là Windows, Python 3.12. Nhật ký r01–r06 ghi thiết bị CPU. Container CVAT trên máy dùng image `cvat/server:v2.81.0`.
 - **Nguồn dự đoán.** Nhật ký ghi nhận các lần chạy model trên CPU. Bước quét ngưỡng và gộp nhãn đọc kết quả từ `work/prelabel/y26_all/` và `work/prelabel/yoloe_all/`. Chưa có thông tin để xác nhận việc dùng `data/cache/` ở các bước khác.
